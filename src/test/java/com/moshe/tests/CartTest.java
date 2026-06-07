@@ -49,7 +49,7 @@ public class CartTest extends BaseTest {
         );
     }
 
-    private void openCartWithProductInside(){
+    public void openCartWithProductInside(){
         loginAsValidUser();
         ProductsPage productsPage = new ProductsPage(driver);
 
