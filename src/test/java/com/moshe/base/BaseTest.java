@@ -1,9 +1,6 @@
 package com.moshe.base;
 
-import com.moshe.pages.CartPage;
-import com.moshe.pages.CheckoutInformationDetailsPage;
-import com.moshe.pages.LoginPage;
-import com.moshe.pages.ProductsPage;
+import com.moshe.pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -71,6 +68,12 @@ public class BaseTest {
         CheckoutInformationDetailsPage checkoutInformationDetailsPage =new CheckoutInformationDetailsPage(driver);
         checkoutInformationDetailsPage.continueClick("moshe","simo","1234567");
 
+    }
+
+    protected void openCompletePage(){
+        openOverviewPage();
+        CheckOutOverviewPage checkOutOverviewPage = new CheckOutOverviewPage(driver);
+        checkOutOverviewPage.clickFinishButton();
     }
 
     @AfterMethod
