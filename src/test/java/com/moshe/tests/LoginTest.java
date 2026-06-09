@@ -40,7 +40,6 @@ public class LoginTest extends BaseTest {
         );
 
         String actualErrorMessage = loginPage.getErrorMessage();
-        System.out.println(actualErrorMessage);
         Assert.assertEquals(actualErrorMessage,"Epic sadface: Username and password do not match any user in this service");
     }
 
@@ -55,7 +54,6 @@ public class LoginTest extends BaseTest {
         );
 
         String actualErrorMessage = loginPage.getErrorMessage();
-        System.out.println(actualErrorMessage);
         Assert.assertEquals(actualErrorMessage,"Epic sadface: Password is required");
     }
 
@@ -69,7 +67,7 @@ public class LoginTest extends BaseTest {
         );
 
         String actualErrorMessage = loginPage.getErrorMessage();
-        System.out.println(actualErrorMessage);
+
         Assert.assertTrue(
                 actualErrorMessage.equals("Epic sadface: Username is required")
         );
@@ -87,29 +85,10 @@ public class LoginTest extends BaseTest {
         );
 
         String actualErrorMessage = loginPage.getErrorMessage();
-        System.out.println(actualErrorMessage);
         Assert.assertEquals(actualErrorMessage,"Epic sadface: Username and password do not match any user in this service");
 
 
     }
-    /*
-    @Test
-    public void doubleClickLogin()  {
-
-        Actions actions = new Actions(driver);
-
-        driver.get("https://www.saucedemo.com/");
-
-        LoginPage loginPage = new LoginPage(driver);
-
-        loginPage.enterUsername("standard_user");
-        loginPage.enterPassword("secret_sauce");
-        actions.doubleClick(
-                driver.findElement(By.id("login-button"))
-        ).perform();
-        System.out.println(driver.getCurrentUrl());
-    }
-*/
 
     @Test
     public void loginWithLockedUser(){

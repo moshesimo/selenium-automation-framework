@@ -30,9 +30,7 @@ public class ProductsTest extends BaseTest {
         loginAsValidUser();
         ProductsPage productsPage = new ProductsPage(driver);
         productsPage.addBackpackToCart();
-        //System.out.println(productsPage.getCartBadgeText());
         productsPage.RemoveBackpackFromCart();
-        //System.out.println(productsPage.isCartEmpty());
         Assert.assertTrue(productsPage.isCartEmpty());
 
 

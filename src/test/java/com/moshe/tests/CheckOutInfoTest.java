@@ -16,7 +16,6 @@ public class CheckOutInfoTest extends BaseTest{
 
         cartPage.clickCheckout();
 
-        System.out.println("Current URL: " + driver.getCurrentUrl());
     }
 
     @Test
@@ -46,10 +45,31 @@ public void continueWithoutLastNameField(){
             new CheckoutInformationDetailsPage(driver);
 
     checkoutInformationDetailsPage.continueClick("moshe","","1234567");
-
-    //System.out.println(checkoutInformationDetailsPage.getErrorMessage());
     Assert.assertEquals(checkoutInformationDetailsPage.getErrorMessage(),"Error: Last Name is required");
 }
+
+    @Test
+    public void continueWithoutPostalCodeField(){
+
+
+        openCheckInfoPage();
+        CheckoutInformationDetailsPage checkoutInformationDetailsPage =
+                new CheckoutInformationDetailsPage(driver);
+
+        checkoutInformationDetailsPage.continueClick("moshe","simo","");
+        Assert.assertEquals(checkoutInformationDetailsPage.getErrorMessage(),"Error: Postal Code is required");
+    }
+
+    @Test
+    public void cancelButtonClick(){
+        openCheckInfoPage();
+        CheckoutInformationDetailsPage checkoutInformationDetailsPage =
+                new CheckoutInformationDetailsPage(driver);
+        checkoutInformationDetailsPage.cancelButton();
+        String currentURL = driver.getCurrentUrl();
+        Assert.assertEquals(currentURL,"https://www.saucedemo.com/cart.html");
+
+    }
 
 
 }

@@ -1,5 +1,7 @@
 package com.moshe.base;
 
+import com.moshe.pages.CartPage;
+import com.moshe.pages.CheckoutInformationDetailsPage;
 import com.moshe.pages.LoginPage;
 import com.moshe.pages.ProductsPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -59,6 +61,16 @@ public class BaseTest {
 
         productsPage.addBackpackToCart();
         productsPage.openCart();
+    }
+
+    protected void openOverviewPage(){
+
+        openCartWithProductInside();
+        CartPage cartPage = new CartPage(driver);
+        cartPage.clickCheckout();
+        CheckoutInformationDetailsPage checkoutInformationDetailsPage =new CheckoutInformationDetailsPage(driver);
+        checkoutInformationDetailsPage.continueClick("moshe","simo","1234567");
+
     }
 
     @AfterMethod
